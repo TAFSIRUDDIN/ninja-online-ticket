@@ -172,16 +172,9 @@
         </div>
         
     </main>
-
-    <!--Thank You-->
     <script>
 
-// onclick="handleTypeChange('economy', true)"
-
-
-// onclick="handleTypeChange('economy', false)"
-
-
+//seat increment decrement
         const firstPlus = document.getElementById('first-plus');
                 firstPlus.addEventListener("click", function(){
                     handleTypeChange('first', true);
@@ -203,17 +196,9 @@
                     
                 })
 
+//end of seat increment decrement
 
-
-
-
-
-
-
-
-
-
-
+        //Display Ticket Detales
 
         const bookNow = document.getElementById('book-confirm');
         bookNow.addEventListener("click", function(){
@@ -223,28 +208,17 @@
                 ticket.style.display = "block";
                 
             })
-
-        // var netFear = document.getElementById('total-amount').value;
-        //         document.getElementById('fare').innerText = netFear;
+        //Display Ticket Detales
 
 
 
-
-
-
-
-
-
-
-
-
-        // all function
+       // all function
         // type means first or economy class
+
         //  Type Handle function
      function handleTypeChange(type, isIncrease){
       const typeInput = document.getElementById(type + '-class');
       const typeClass = parseInt(typeInput.value);
-      // const caseNewClass = caseClass - 1;
       let typeNewClass = typeClass;
       
       if(isIncrease == true){
@@ -254,43 +228,46 @@
          typeNewClass = typeClass - 1;
       }
       typeInput.value = typeNewClass;
-    calculateTotal()
+      calculateTotal()
       
-   }
+    }
+
     // Price calculate function
     function calculateTotal(){
-   const firstClass = getInputValue('first');
-   const economyClass = getInputValue('economy');
-   const subtotalPrice = firstClass * 150 + economyClass * 100;
-   document.getElementById('subtotal-amount').innerText = '$' + subtotalPrice;
-   const tax = Math.round(subtotalPrice * 0.1);
-   document.getElementById('tax-amount').innerText = '$' + tax;
-   const total = subtotalPrice + tax;
-   document.getElementById('total-amount').innerText = '$' + total;
-   document.getElementById('fare').innerText = '$' + total;
+        const firstClass = getInputValue('first');
+        const economyClass = getInputValue('economy');
+        const subtotalPrice = firstClass * 150 + economyClass * 100;
+        document.getElementById('subtotal-amount').innerText = '$' + subtotalPrice;
+        const tax = Math.round(subtotalPrice * 0.1);
+        document.getElementById('tax-amount').innerText = '$' + tax;
+        const total = subtotalPrice + tax;
+        document.getElementById('total-amount').innerText = '$' + total;
+        document.getElementById('fare').innerText = '$' + total;
 
-   const departureDate = document.getElementById('departure').value;
-   document.getElementById('dateOfJourney').innerText = departureDate;
-   const returnDate = document.getElementById('return').value;
-   document.getElementById('dateOfReturn').innerText = returnDate;
+        const departureDate = document.getElementById('departure').value;
+        document.getElementById('dateOfJourney').innerText = departureDate;
+        const returnDate = document.getElementById('return').value;
+        document.getElementById('dateOfReturn').innerText = returnDate;
 
 
+        
+        document.getElementById('first-class-count').innerText = firstClass;
+        document.getElementById('economy-class-count').innerText = economyClass;
+
+        const flyingFrom = document.getElementById('flying-from').value;
+        document.getElementById('from').innerText = flyingFrom;
+        const flyingTo = document.getElementById('flying-to').value;
+        document.getElementById('to').innerText = flyingTo;
    
-   document.getElementById('first-class-count').innerText = firstClass;
-   document.getElementById('economy-class-count').innerText = economyClass;
+      }
 
-   const flyingFrom = document.getElementById('flying-from').value;
-   document.getElementById('from').innerText = flyingFrom;
-   const flyingTo = document.getElementById('flying-to').value;
-   document.getElementById('to').innerText = flyingTo;
-   
-   
-    }
+
+
     //Get input function
     function getInputValue(type){
-   const typeInput = document.getElementById(type +'-class');
-   const typeCount = parseInt(typeInput.value);
-   return typeCount;
+        const typeInput = document.getElementById(type +'-class');
+        const typeCount = parseInt(typeInput.value);
+        return typeCount;
     }
 
     </script>
