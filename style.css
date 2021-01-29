@@ -116,8 +116,50 @@ nav ul li a:hover, a.active{
     color: #fff;
     font-weight: 500;
     background-color:  #E33741;
+    cursor: pointer;
 }
 .amount{
     display: flex;
     justify-content: space-between;
+}
+.ticket{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    float: right;
+    width: 67%;
+    margin-left: 180px;
+    display: none;
+}
+.ticket p{
+    margin: 0;
+}
+.ticket-head{
+    
+    color: black;
+    padding: 5px;
+    text-align: left;
+    border-bottom: 3px solid black;
+}
+.ticket-head h2{
+    font-size: 1.75rem;
+    
+}
+.head-hr{
+    border-top: 2px solid rgba(0,0,0,.1);
+}
+.ticket-paragraph{
+    font-size: 21px;
+    font-weight: bold;
+
+}
+.ticket-street{
+    text-align: center;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.466);
+    margin-bottom: 23px;
+}
+.ticket-confirm{
+    margin-top: 20px;
 }

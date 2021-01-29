@@ -37,7 +37,7 @@
         </div>
 
 
-        <div class="booking-form">
+        <div id="booking-form" class="booking-form">
             <h3>Book Ocean Time</h3>
             <div class="input-group">
                 <label for="flying-from">Flying From</label>
@@ -60,22 +60,22 @@
             <div class="input-group f-class">
                 <div>
                     <label for="first-class">First Class ($150)</label>
-                    <input id="first-class" class="inp-style inp-width" type="text" name="first-class" value="1">
+                    <input id="first-class" class="inp-style inp-width" type="text" name="first-class" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <button onclick="handleTypeChange('first', false)" class="btn btn-default"><i class="remove-items fas fa-minus"></i></button>
-                    <button onclick="handleTypeChange('first', true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                    <button id="first-minus" class="btn btn-default"><i class="remove-items fas fa-minus"></i></button>
+                    <button id="first-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
                 </div>
             </div>
             
             <div class="input-group f-class">
                 <div>
                     <label for="economy-class">Economy ($100)</label>
-                    <input id="economy-class" class="inp-style inp-width" type="text" name="economy-class" value="1">
+                    <input id="economy-class" class="inp-style inp-width" type="text" name="economy-class" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <button onclick="handleTypeChange('economy', false)" class="btn btn-default"><i class="remove-items fas fa-minus"></i></button>
-                    <button onclick="handleTypeChange('economy', true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                    <button id="economy-minus" class="btn btn-default"><i class="remove-items fas fa-minus"></i></button>
+                    <button id="economy-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
                 </div>
             </div>
             <div class="calculations">
@@ -84,7 +84,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p id="subtotal-amount">$250</p>
+                        <p id="subtotal-amount">$0</p>
                     </div>
                 </div>
 
@@ -93,7 +93,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p id="tax-amount" >$25</p>
+                        <p id="tax-amount" >$0</p>
                     </div>
                 </div>
                 <hr>
@@ -102,16 +102,142 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p id="total-amount">$275</p>
+                        <p id="total-amount">$0</p>
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="book-confirm" class="btn-style">Book Now</button>
         </div>
+        <div id="ticket" class="ticket">
+            <h2 class="ticket-head">Ticket Detales</h2>
+            
+            <h3 class="ticket-street"><span id="from">Dhaka </span> To <span id="to"> New York </span></h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="ticket-paragraph">Name</p>
+                    <p>Tafsir uddin</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="ticket-paragraph">Operator</p>
+                    <p>surovi group of companies</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="ticket-paragraph">Date of journey</p>
+                    <p id="dateOfJourney">00-00-00</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="ticket-paragraph">Return</p>
+                    <p id="dateOfReturn">00-00-00</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="ticket-paragraph">First Class</p>
+                    <p id="first-class-count">0</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="ticket-paragraph">Economy Class</p>
+                    <p id="economy-class-count">0</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="ticket-paragraph">Status</p>
+                    <p>Reserved</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="ticket-paragraph">Fare</p>
+                    <p id="fare">$00</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="ticket-paragraph">Reporting Time</p>
+                    <p>12:00 Am</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="ticket-paragraph">Departure Time</p>
+                    <p>12:15 Am</p>
+                </div>
+            </div>
+            <button class="ticket-confirm btn-style">Order Confirm</button>
+
+
+        </div>
+        
     </main>
 
     <!--Thank You-->
     <script>
+
+// onclick="handleTypeChange('economy', true)"
+
+
+// onclick="handleTypeChange('economy', false)"
+
+
+        const firstPlus = document.getElementById('first-plus');
+                firstPlus.addEventListener("click", function(){
+                    handleTypeChange('first', true);
+                    
+                })
+        const firstMinus = document.getElementById('first-minus');
+                firstMinus.addEventListener("click", function(){
+                    handleTypeChange('first', false);
+                    
+                })
+        const economyPlus = document.getElementById('economy-plus');
+                economyPlus.addEventListener("click", function(){
+                    handleTypeChange('economy', true);
+                    
+                })
+        const economyMinus = document.getElementById('economy-minus');
+                economyMinus.addEventListener("click", function(){
+                    handleTypeChange('economy', false);
+                    
+                })
+
+
+
+
+
+
+
+
+
+
+
+
+
+        const bookNow = document.getElementById('book-confirm');
+        bookNow.addEventListener("click", function(){
+            var bookConfirm = document.getElementById('booking-form');
+                bookConfirm.style.display = "none";
+            var ticket = document.getElementById('ticket');
+                ticket.style.display = "block";
+                
+            })
+
+        // var netFear = document.getElementById('total-amount').value;
+        //         document.getElementById('fare').innerText = netFear;
+
+
+
+
+
+
+
+
+
+
+
+
         // all function
         // type means first or economy class
         //  Type Handle function
@@ -135,12 +261,30 @@
     function calculateTotal(){
    const firstClass = getInputValue('first');
    const economyClass = getInputValue('economy');
-   const totalPrice = firstClass * 150 + economyClass * 100;
-   document.getElementById('subtotal-amount').innerText = '$' + totalPrice;
-   const tax = Math.round(totalPrice * 0.1);
+   const subtotalPrice = firstClass * 150 + economyClass * 100;
+   document.getElementById('subtotal-amount').innerText = '$' + subtotalPrice;
+   const tax = Math.round(subtotalPrice * 0.1);
    document.getElementById('tax-amount').innerText = '$' + tax;
-   const grandtotal = totalPrice + tax;
-   document.getElementById('total-amount').innerText = '$' + grandtotal;
+   const total = subtotalPrice + tax;
+   document.getElementById('total-amount').innerText = '$' + total;
+   document.getElementById('fare').innerText = '$' + total;
+
+   const departureDate = document.getElementById('departure').value;
+   document.getElementById('dateOfJourney').innerText = departureDate;
+   const returnDate = document.getElementById('return').value;
+   document.getElementById('dateOfReturn').innerText = returnDate;
+
+
+   
+   document.getElementById('first-class-count').innerText = firstClass;
+   document.getElementById('economy-class-count').innerText = economyClass;
+
+   const flyingFrom = document.getElementById('flying-from').value;
+   document.getElementById('from').innerText = flyingFrom;
+   const flyingTo = document.getElementById('flying-to').value;
+   document.getElementById('to').innerText = flyingTo;
+   
+   
     }
     //Get input function
     function getInputValue(type){
