@@ -64,6 +64,8 @@ nav ul li a:hover, a.active{
     float: right;
     width: 67%;
     margin-left: 180px;
+    margin-bottom: 15px;
+
 }
 @media only screen and (max-width: 1439px) {
     .booking-form{
